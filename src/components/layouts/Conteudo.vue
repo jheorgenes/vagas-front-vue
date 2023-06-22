@@ -8,7 +8,10 @@
     <button @click="conteudo = 'publicar-vaga'">Publicar Vaga</button>
     <!-- <home></home> -->
     <!-- <publicar-vaga></publicar-vaga> -->
-    <component :is="conteudo" />
+    <keep-alive>
+      <component :is="conteudo" />
+    </keep-alive>
+    <!-- <component :is="conteudo" /> -->
   </div>
 </template>
 
@@ -32,6 +35,7 @@ export default {
       this.titulo += '*'
     }
   },
+  /*
   beforeCreate() {
     console.log('Antes do criar -', this.teste);
   },
@@ -56,7 +60,6 @@ export default {
   unmounted() {
     console.log('Desmontado/destruído');
   },
-  /*
   errorCaptured() {
     console.log('Erro capturado');
   },
