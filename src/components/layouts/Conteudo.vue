@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Componente Conteudo</h1>
+    <h1>{{ titulo }}</h1>
+    <button @click="atualizarComponente()">Atualizar</button>
     <home></home>
     <publicar-vaga></publicar-vaga>
   </div>
@@ -16,17 +17,23 @@ export default {
     Home,
     PublicarVaga
   },
+  data:() => ({
+    teste: 'O componente foi criado',
+    titulo: 'Componente Conteudo'
+  }),
   methods: {
-
+    atualizarComponente(){
+      this.titulo += '*'
+    }
   },
   beforeCreate() {
-    console.log('Antes do criar');
+    console.log('Antes do criar -', this.teste);
   },
   created() {
-    console.log('Criado');
+    console.log('Criado -', this.teste);
   },
   beforeMount() {
-    console.log('Antes de montar');
+    console.log('Antes de montar o template');
   },
   mounted() {
     console.log('Montado');
@@ -43,6 +50,7 @@ export default {
   unmounted() {
     console.log('Desmontado/destruído');
   },
+  /*
   errorCaptured() {
     console.log('Erro capturado');
   },
@@ -58,6 +66,7 @@ export default {
   deactivated() {
     console.log('Componente é desativado');
   }
+  */
 }
 </script>
 

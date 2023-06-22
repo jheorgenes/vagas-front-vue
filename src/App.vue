@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1>Componente App</h1>
+    <button @click="desmontarComponente()">Desmontar o componente Conteúdo</button>
     <TopoPadrao />
-    <Conteudo />
+    <Conteudo v-if="visibilidade"/>
   </div>
 </template>
 
@@ -15,6 +16,14 @@ export default {
   components: {
     Conteudo,
     TopoPadrao
+  },
+  data: () => ({
+    visibilidade: true
+  }),
+  methods: {
+    desmontarComponente() {
+      this.visibilidade = false
+    }
   }
 }
 </script>
