@@ -2,7 +2,8 @@
   <div>
     <h1>Componente App</h1>
     <button @click="desmontarComponente()">Desmontar o componente Conteúdo</button>
-    <TopoPadrao />
+    <!-- <TopoPadrao @nomeDoEventoQueSeraCapturadoNoComponentePai="acao($event)" /> --><!-- Capturando um objeto ou uma string.. etc. -->
+    <TopoPadrao @nomeDoEventoQueSeraCapturadoNoComponentePai="$event('Texto 1', 125)" /> <!-- Capturando a função de callback -->
     <Conteudo v-if="visibilidade"/>
   </div>
 </template>
@@ -23,6 +24,9 @@ export default {
   methods: {
     desmontarComponente() {
       this.visibilidade = false
+    },
+    acao(event) {
+      console.log(event.msg);
     }
   }
 }
