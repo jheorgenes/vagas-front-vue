@@ -2,8 +2,7 @@
   <div>
     <h1>Componente App</h1>
     <button @click="desmontarComponente()">Desmontar o componente Conteúdo</button>
-    <!-- <TopoPadrao @nomeDoEventoQueSeraCapturadoNoComponentePai="acao($event)" /> --><!-- Capturando um objeto ou uma string.. etc. -->
-    <TopoPadrao @nomeDoEventoQueSeraCapturadoNoComponentePai="$event('Texto 1', 125)" /> <!-- Capturando a função de callback -->
+    <TopoPadrao :funcaoCallback="acao"/>
     <Conteudo v-if="visibilidade"/>
   </div>
 </template>
@@ -25,8 +24,10 @@ export default {
     desmontarComponente() {
       this.visibilidade = false
     },
-    acao(event) {
-      console.log(event.msg);
+    acao(p1, p2) {
+      console.log('Função de callback definida no componente Pai e chamada no componente Filho');
+      console.log('P1: ',p1);
+      console.log('P2: ',p2);
     }
   }
 }
