@@ -2,8 +2,8 @@
   <div>
     <h1>Componente App</h1>
     <button @click="desmontarComponente()">Desmontar o componente Conteúdo</button>
-    <TopoPadrao :funcaoCallback="acao"/>
-    <Conteudo v-if="visibilidade"/>
+    <TopoPadrao @navegar="componente = $event" /><!-- Recebe de TopoPadrao o valor de componente -->
+    <Conteudo v-if="visibilidade" :conteudo="componente" /><!-- Envia componente para conteúdo -->
   </div>
 </template>
 
@@ -18,7 +18,8 @@ export default {
     TopoPadrao
   },
   data: () => ({
-    visibilidade: true
+    visibilidade: true,
+    componente: 'Home'
   }),
   methods: {
     desmontarComponente() {

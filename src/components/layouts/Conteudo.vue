@@ -1,13 +1,7 @@
 <template>
   <div>
     <h1>{{ titulo }}</h1>
-    <button @click="atualizarComponente()">Atualizar</button>
-
-    <!-- renderizar de modo dinâmico os componentes home e publicar-vaga -->
-    <button @click="conteudo = 'home'">Home</button>
-    <button @click="conteudo = 'publicar-vaga'">Publicar Vaga</button>
-    <!-- <home></home> -->
-    <!-- <publicar-vaga></publicar-vaga> -->
+      {{ conteudo }}
     <keep-alive>
       <component :is="conteudo" />
     </keep-alive>
@@ -21,14 +15,19 @@ import PublicarVaga from '@/components/views/PublicarVaga.vue'
 
 export default {
   name: 'Conteudo',
+  props: {
+    conteudo: {
+      type: String,
+      required: true
+    }
+  },
   components: {
     Home,
     PublicarVaga
   },
   data:() => ({
     teste: 'O componente foi criado',
-    titulo: 'Componente Conteudo',
-    conteudo: 'home'
+    titulo: 'Componente Conteudo'
   }),
   methods: {
     atualizarComponente(){
