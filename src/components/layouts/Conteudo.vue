@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1>{{ titulo }}</h1>
-      {{ conteudo }}
     <keep-alive>
       <component :is="conteudo" />
     </keep-alive>
@@ -24,15 +22,6 @@ export default {
   components: {
     Home,
     PublicarVaga
-  },
-  data:() => ({
-    teste: 'O componente foi criado',
-    titulo: 'Componente Conteudo'
-  }),
-  methods: {
-    atualizarComponente(){
-      this.titulo += '*'
-    }
   },
   /*
   beforeCreate() {
