@@ -85,7 +85,17 @@ export default {
       }
 
       vagas.push(vaga)
-      localStorage.setItem('vagas', JSON.stringify(vagas));
+      // localStorage.setItem('vagas', JSON.stringify(vagas));
+      this.emitter.emit('alerta')
+
+      this.resetaFormularioCadastroVaga();
+    },
+    resetaFormularioCadastroVaga() {
+      this.titulo = '',
+      this.descricao = '',
+      this.salario = '',
+      this.modalidade = '',
+      this.tipo = ''
     }
   }
 }
