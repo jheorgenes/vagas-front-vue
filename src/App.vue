@@ -3,12 +3,10 @@
     <VagasFavoritas />
     <TopoPadrao @navegar="componente = $event" /><!-- Recebe de TopoPadrao o valor de componente -->
     <Alerta v-if="exibirAlerta">
-      <template v-slot:titulo>
+      <template v-slot:titulo> <!-- Slot nomeado sendo enviado -->
         <h5>Titulo do alerta</h5>
       </template>
-      <template v-slot:descricao>
-        <p>Descrição do alerta</p>
-      </template>
+      <p>Descrição do alerta</p> <!-- Slot Padrão sendo enviado -->
     </Alerta>
     <Conteudo v-if="visibilidade" :conteudo="componente" /><!-- Envia componente para conteúdo -->
   </div>

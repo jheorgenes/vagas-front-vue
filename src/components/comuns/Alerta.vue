@@ -1,8 +1,8 @@
 <template>
   <div class="alert alert-success" role="alert">
-    <slot name="titulo"></slot>
+    <slot name="titulo"></slot> <!-- Slot nomeado sendo exibido -->
     <hr>
-    <slot name="descricao"></slot>
+    <slot></slot> <!-- Slot padrão sendo exibido -->
   </div>
 </template>
 
