@@ -2,11 +2,11 @@
   <div>
     <VagasFavoritas />
     <TopoPadrao @navegar="componente = $event" /><!-- Recebe de TopoPadrao o valor de componente -->
-    <Alerta v-if="exibirAlerta">
+    <Alerta v-if="exibirAlerta" :tipo="alerta.tipo">
       <template v-slot:titulo>
-        <h5>Titulo do alerta</h5>
+        <h5>{{ alerta.titulo }}</h5>
       </template>
-      <p>Descrição do alerta</p> 
+      <p>{{ alerta.descricao }}</p> 
     </Alerta>
     <Conteudo v-if="visibilidade" :conteudo="componente" /><!-- Envia componente para conteúdo -->
   </div>
@@ -23,7 +23,8 @@ export default {
   data: () => ({
     visibilidade: true,
     componente: 'Home',
-    exibirAlerta: false
+    exibirAlerta: false,
+    alerta: { tipo: '', titulo: '', descricao: '' }
   }),
   components: {
     Conteudo,
@@ -32,10 +33,10 @@ export default {
     Alerta
   },
   mounted() {
-    this.emitter.on('alerta', () => {
+    this.emitter.on('alerta', (a) => {
+      this.alerta = a; //Pegando o objeto de alerta que veio do emissor e jogando nessa propriedade
       this.exibirAlerta = true;
       setTimeout(() => this.exibirAlerta = false, 4000);
-      console.log('Apresentar a mensagem de alerta customizada');
     })
   }
 }
