@@ -1,6 +1,8 @@
 <template>
   <div class="alert alert-success" role="alert">
-    Aqui ficará a mensagem de alerta (feedback)
+    <slot name="titulo"></slot>
+    <hr>
+    <slot name="descricao"></slot>
   </div>
 </template>
 
