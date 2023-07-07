@@ -1,8 +1,10 @@
 <template>
   <div class="alert alert-success" role="alert">
-    <slot name="titulo"></slot> <!-- Slot nomeado sendo exibido -->
+    <slot name="titulo">
+      <h3>Titulo da mensagem de feedback</h3>
+    </slot>
     <hr>
-    <slot></slot> <!-- Slot padrão sendo exibido -->
+    <slot><p>Mensagem de feedback</p></slot>
   </div>
 </template>
 
