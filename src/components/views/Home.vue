@@ -6,17 +6,19 @@
       </div>
     </div>
 
-    <lista-vagas v-slot:default="slotProps">
-      <div v-for="(vaga, index) in slotProps.vagas" :key="index">
-        <h4>{{ vaga.titulo }}</h4>
-        <p>{{ vaga.descricao }}</p>
+    <lista-vagas>
+      <template v-slot:titulo="slotProps">
+        {{ slotProps.dadosTitulo.titulo }}
         <hr>
-      </div>
-    </lista-vagas>
-
-    <br><br>
-    <h2>Template padrão</h2>
-    <lista-vagas></lista-vagas> 
+      </template>
+      <template v-slot:default="slotProps">
+        {{ slotProps.vagas }}
+        <hr>
+      </template>
+      <template v-slot:rodape="slotProps">
+        {{ slotProps.dadosRodape.titulo }}
+      </template>
+    </lista-vagas> 
 
     <div class="row mt-5">
       <div class="col-4">
