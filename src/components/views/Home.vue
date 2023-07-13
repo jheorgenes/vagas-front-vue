@@ -7,7 +7,7 @@
     </div>
 
     <lista-vagas>
-      <template v-slot:titulo="slotProps">
+      <!-- <template v-slot:titulo="slotProps">
         {{ slotProps.dadosTitulo.titulo }}
         <hr>
       </template>
@@ -17,7 +17,7 @@
       </template>
       <template v-slot:rodape="slotProps">
         {{ slotProps.dadosRodape.titulo }}
-      </template>
+      </template> -->
     </lista-vagas> 
 
     <div class="row mt-5">

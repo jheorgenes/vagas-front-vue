@@ -1,8 +1,8 @@
 <template>
 
-  <slot name="titulo" :dadosTitulo="{ titulo: 'Titulo Lista', nroVagas: 15 }">
+  <!-- <slot name="titulo" :dadosTitulo="{ titulo: 'Titulo Lista', nroVagas: 15 }">
     <p>Titulo da lista de vagas</p>
-  </slot>
+  </slot> -->
 
   <slot :vagas="vagas">
     <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
@@ -12,9 +12,9 @@
     </div>
   </slot>
 
-  <slot name="rodape" :dadosRodape="{ titulo: 'Rodapé lista', paginacao: { nroPaginas: 10, paginaAtual: 5 } }">
+  <!-- <slot name="rodape" :dadosRodape="{ titulo: 'Rodapé lista', paginacao: { nroPaginas: 10, paginaAtual: 5 } }">
     <p>O rodapé da lista de vagas</p>
-  </slot>
+  </slot> -->
 
 </template>
 
