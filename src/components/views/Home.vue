@@ -5,19 +5,19 @@
         <pesquisar-vaga></pesquisar-vaga>
       </div>
     </div>
-    <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
-      <div class="col">
-        <!-- <vaga 
-          :titulo="vaga.titulo"
-          :descricao="vaga.descricao"
-          :salario="vaga.salario"
-          :modalidade="vaga.modalidade"
-          :tipo="vaga.tipo"
-          :publicacao="vaga.publicacao"
-        /> -->
-        <vaga v-bind="vaga" /><!-- Enviando o objeto inteiro -->
+
+    <lista-vagas v-slot:default="slotProps">
+      <div v-for="(vaga, index) in slotProps.vagas" :key="index">
+        <h4>{{ vaga.titulo }}</h4>
+        <p>{{ vaga.descricao }}</p>
+        <hr>
       </div>
-    </div>
+    </lista-vagas>
+
+    <br><br>
+    <h2>Template padrão</h2>
+    <lista-vagas></lista-vagas> 
+
     <div class="row mt-5">
       <div class="col-4">
         <indicador titulo="Vagas abertas" indicador="100" bg="bg-dark" color="text-white"></indicador>
@@ -34,19 +34,18 @@
 
 <script>
 import PesquisarVaga from '@/components/comuns/PesquisarVaga.vue';
+import ListaVagas from '@/components/comuns/ListaVagas.vue';
 import Indicador from '@/components/comuns/Indicador.vue'
-import Vaga from '@/components/comuns/Vaga.vue'
 
 export default {
   name: 'Home',
   components: {
     PesquisarVaga,
     Indicador,
-    Vaga
+    ListaVagas
   },
   data: () => ({
-    usuariosOnline: 0,
-    vagas: []
+    usuariosOnline: 0
   }),
   methods: {
     getUsuariosOnline() {
@@ -56,15 +55,6 @@ export default {
   created() {
     setInterval(this.getUsuariosOnline, 1000) //a cada 1 segundo essa função será executada
   },
-  activated() {
-    this.vagas = JSON.parse(localStorage.getItem('vagas'));
-  },
-  mounted(){
-    this.emitter.on('filtrarVagas', vaga => {
-      const vagas = JSON.parse(localStorage.getItem('vagas'));
-      this.vagas = vagas.filter(reg => reg.titulo.toLowerCase().includes(vaga.titulo.toLowerCase()))
-    });
-  }
 }
 </script>
 
