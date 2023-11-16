@@ -6,19 +6,16 @@
       </div>
     </div>
 
-    <lista-vagas>
-      <!-- <template v-slot:titulo="slotProps">
-        {{ slotProps.dadosTitulo.titulo }}
-        <hr>
-      </template>
-      <template v-slot:default="slotProps">
-        {{ slotProps.vagas }}
-        <hr>
-      </template>
-      <template v-slot:rodape="slotProps">
-        {{ slotProps.dadosRodape.titulo }}
-      </template> -->
-    </lista-vagas> 
+    <!-- Usando as props recebidas do componente filho (ListaVagas) e customizando a sua exibição (que substituirá o slot do componente filho) -->
+    <!-- <lista-vagas v-slot:default="slotProps">
+      <div v-for="(vaga, index) in slotProps.vagas" :key="index">
+        <h4>{{ vaga.titulo }}</h4>
+        <p>{{ vaga.descricao }}</p>
+      </div>
+    </lista-vagas> -->
+
+    <!-- Usando o componente padrão (sem utilizar as props recebidas via slot do componente filho) e sem substituir o template do slot do componente -->
+    <lista-vagas></lista-vagas> 
 
     <div class="row mt-5">
       <div class="col-4">
@@ -59,6 +56,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>

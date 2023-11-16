@@ -25,7 +25,7 @@ export default {
   }),
   methods: {
     pesquisarVaga(){
-      this.emitter.emit('filtrarVagas', { titulo: this.titulo });
+      this.emitter.emit('filtrarVagas', { titulo: this.titulo }); //Emitidindo um evento para ListaVagas para realizar a filtragem das vagas
     },
   }
 }

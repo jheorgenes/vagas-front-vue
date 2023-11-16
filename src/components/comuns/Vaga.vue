@@ -34,7 +34,7 @@ export default {
   watch: {
     favoritada(valorNovo) {
       if(valorNovo) {
-        this.emitter.emit('favoritarVaga', this.titulo);
+        this.emitter.emit('favoritarVaga', this.titulo); //Emitindo um evento de forma global, para quem quiser ouvir
       } else {
         this.emitter.emit('desfavoritarVaga', this.titulo);
       }
@@ -51,8 +51,6 @@ export default {
     },
     descricao: {
       type: String,
-      // required: true,
-      // default: 'O contratante não adicionou uma descrição para essa vaga'
       default() {
         return '*'.repeat(20);
       }
@@ -94,9 +92,6 @@ export default {
       return dataPublicacao.toLocaleDateString('pt-BR');
     }
   },
-  methods: {
-
-  }
 }
 </script>
 

@@ -24,7 +24,7 @@ export default {
   name: 'TopoPadrao',
   methods: {
     navegarPara(pagina) {
-      this.$emit('navegar', pagina);
+      this.$emit('navegar', pagina); //Enviando para o componente irmão (Conteúdo) o componente que será exibido
     }
   }
 }

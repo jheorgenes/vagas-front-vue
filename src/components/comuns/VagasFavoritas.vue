@@ -26,7 +26,8 @@ export default {
     vagas: []
   }),
   mounted() {
-    this.emitter.on('favoritarVaga', (titulo) => {
+    //Escutando um evento global com a a função on. O nome da função deve ser o mesmo emitido e ele também executa uma função de callback
+    this.emitter.on('favoritarVaga', (titulo) => { 
       this.vagas.push(titulo);
     })
 

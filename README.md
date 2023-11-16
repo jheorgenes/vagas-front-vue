@@ -5,6 +5,12 @@
 npm install
 ```
 
+## Dependencies
+### mitt (para comunicação de componentes)
+```
+npm i --save mitt
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
